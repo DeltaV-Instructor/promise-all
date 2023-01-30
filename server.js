@@ -52,6 +52,12 @@ longTask('i - 3').then(task => console.log('Task', task)).catch(console.error);
 longTask('i - 4').then(task => console.log('Task', task)).catch(console.error);
 
 
+// Running many async things in a series -- These will always happen in order
+console.log('------- Chained ----------');
+longTask('c - 1')
+  .then( data => { console.log(data); return longTask('c - 2'); } )
+  .then( data => { console.log(data); return longTask('c - 3'); } )
+  .then( data => { console.log(data); return longTask('c - 4'); } );
 
 
 
