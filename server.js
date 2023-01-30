@@ -70,7 +70,8 @@ longTask('c - 1')
 // but the collected responses will be GIVEN to you in order
 console.log('------- Promise.all() ----------');
 let stuffToDo = [];
-for( let i = 1; i <= 10; i++ ) {
+for( let i = 1; i <= 10; i++ ) 
+{
   stuffToDo.push(longTask(`pa - ${i}`));
 }
 Promise.all(stuffToDo)
