@@ -14,3 +14,14 @@ const app = express();
 //5. use cors
 app.use(cors());
 const PORT = process.env.PORT || 5005;
+
+
+
+
+
+
+
+
+
+
+app.listen(PORT, () => console.log(`Listening on PORT ${PORT}`));
