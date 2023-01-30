@@ -22,6 +22,9 @@ app.get('/', (req,res) => {
 })
 
 
+// Promises DECLARE functionality
+// "Go ahead and do your work and let me know when you're done. 
+// Meanwhile, I'm going to do other things."
 
 let longTask = (status) => new Promise( (resolve,reject) => {
   let timer = Math.floor(Math.random() * 1000);
@@ -31,15 +34,22 @@ let longTask = (status) => new Promise( (resolve,reject) => {
   },timer);
 });
 
+
+
+// Just do this longTask one time ...
+// Notice that code after this actually executes before this completes.
 longTask('First One')
   .then(task => console.log('Task', task))
   .catch(console.error);
 
 
 
-
-
-
+// Running many async things individually (no guarantee of order)
+console.log('------- Individually ----------');
+longTask('i - 1').then(task => console.log('Task', task)).catch(console.error);
+longTask('i - 2').then(task => console.log('Task', task)).catch(console.error);
+longTask('i - 3').then(task => console.log('Task', task)).catch(console.error);
+longTask('i - 4').then(task => console.log('Task', task)).catch(console.error);
 
 
 
