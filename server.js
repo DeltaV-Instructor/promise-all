@@ -18,14 +18,46 @@ const PORT = process.env.PORT || 5005;
 
 //8. Add a home route
 app.get('/', (req,res) => {
-  response.status(200).send('Hello from server file!');
+  res.status(200).send('Hello from server file!');
 })
+
+
+
+let longTask = (status) => new Promise( (resolve,reject) => {
+  let timer = Math.floor(Math.random() * 1000);
+  setTimeout( () => {
+    if( status ) { resolve(`Good (${status} / ${timer})`); }
+    else { reject('Bad'); }
+  },timer);
+});
+
+longTask('First One')
+  .then(task => console.log('Task', task))
+  .catch(console.error);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 //7. add 404 route handleing
 app.get('*', (req, res) => {
-  response.status(404).send('This route is lost in space!');
+  res.status(404).send('This route is lost in space!');
 });
 
 
