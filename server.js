@@ -16,7 +16,10 @@ const app = express();
 app.use(cors());
 const PORT = process.env.PORT || 5005;
 
-
+//8. Add a home route
+app.get('/', (req,res) => {
+  response.status(200).send('Hello from server file!');
+})
 
 
 
